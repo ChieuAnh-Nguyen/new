@@ -20,7 +20,7 @@ class CreationViewController: UIViewController {
     }
     
     @IBAction func didTapOnCancel(_ sender: Any) {
-    
+     dismiss(animated: true)
         
     }
     
@@ -29,7 +29,7 @@ class CreationViewController: UIViewController {
         let answerText = answerTextField.text
     
         flashcardsController.updateFlashcard(Question: questionText! , Answer: answerText!)
-        dismiss(animated: true)
+  
         
     }
     
