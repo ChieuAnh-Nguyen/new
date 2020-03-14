@@ -29,7 +29,7 @@ class CreationViewController: UIViewController {
         let answerText = answerTextField.text
     dismiss(animated: true)
 
-        flashcardsController.updateFlashcard(Question: questionText! , Answer: answerText!)
+        flashcardsController.updateFlashcard(question: questionText! , answer: answerText!)
         
     }
     
