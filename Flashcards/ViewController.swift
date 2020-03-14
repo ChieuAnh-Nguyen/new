@@ -8,12 +8,21 @@
 
 import UIKit
 
+struct Flashcard {
+    var Question: String
+    var Answer: String
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var card: UILabel!
 
+    // Array to hold our flashcards
+    var flashcards = [Flashcard] ()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         card.layer.cornerRadius = 20
@@ -28,16 +37,20 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        print("Hello")
         frontLabel.isHidden = true
         backLabel.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         
     }
-    func updateFlashcard(Question: String, Answer: String) {
-        backLabel.text = Answer
-        frontLabel.text = Question
     
+    func updateFlashcard(question: String, answer: String) {
+        let flashcard = Flashcard(Question: question, Answer: answer)
+        backLabel.text = flashcard.Answer
+        frontLabel.text = flashcard.Question
+    frontLabel.isHidden = false
+        flashcards.append(flashcard)
     }
+    
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
